@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahnoor Tabassam | ResumeFlix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #141414;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e50914;
+            margin-bottom: 30px;
+        }
+        
+        .profile-header {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .profile-picture {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 4px solid #e50914;
+            display: block;
+        }
+        
+        .profile-name {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .profile-location {
+            font-size: 1.3rem;
+            color: #808080;
+            margin-bottom: 0;
+        }
+        
+        .profiles-container {
+            text-align: center;
+        }
+        
+        .profiles-title {
+            font-size: 3rem;
+            margin-bottom: 50px;
+        }
+        
+        .profiles {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto 100px;
+            justify-items: center;
+        }
+        
+        .profile {
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 100%;
+            max-width: 180px;
+        }
+        
+        .profile:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 4px;
+            background-color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .profile-name-small {
+            font-size: 1.5rem;
+            color: #808080;
+            text-align: center;
+        }
+        
+        .profile:hover .profile-name-small {
+            color: #fff;
+        }
+        
+        .content {
+            display: none;
+            padding: 40px;
+            background-color: #181818;
+            border-radius: 6px;
+            margin-top: 30px;
+        }
+        
+        /* Rest of your existing CSS remains the same */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .content-title {
+            font-size: 2.5rem;
+            color: #e50914;
+        }
+        
+        .back-button {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #e50914;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #d2d2d2;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+        
+        .skill-item {
+            background-color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .experience-item {
+            margin-bottom: 25px;
+        }
+        
+        .experience-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .experience-company {
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .experience-date {
+            color: #808080;
+            margin-bottom: 10px;
+        }
+        
+        .experience-details {
+            margin-left: 20px;
+        }
+        
+        .experience-details li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 900px) {
+            .profiles {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .profile-picture {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profiles-title {
+                font-size: 2.5rem;
+            }
+            
+            .content-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .profiles {
+                grid-template-columns: 1fr;
+                max-width: 250px;
+            }
+            
+            .profile-picture {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">RESUMEFLIX</div>
+        
+        <!-- Profile Header with Picture, Name, and Location -->
+        <div class="profile-header">
+            <!-- Replace 'your-photo.jpg' with your actual image file -->
+            <img src="your-photo.jpg" alt="Mahnoor Tabassam" class="profile-picture">
+            <h1 class="profile-name">Mahnoor Tabassam</h1>
+            <div class="profile-location">Tallinn, Estonia</div>
+        </div>
+        
+        <div class="profiles-container" id="profiles-view">
+            <h1 class="profiles-title">Who is watching?</h1>
+            <div class="profiles">
+                <div class="profile" onclick="showContent('qa')">
+                    <div class="profile-img">🔍</div>
+                    <div class="profile-name-small">QA Engineer</div>
+                </div>
+                <div class="profile" onclick="showContent('marketing')">
+                    <div class="profile-img">📢</div>
+                    <div class="profile-name-small">Digital Marketer</div>
+                </div>
+                <div class="profile" onclick="showContent('business')">
+                    <div class="profile-img">📈</div>
+                    <div class="profile-name-small">Business Developer</div>
+                </div>
+                <div class="profile" onclick="showContent('general')">
+                    <div class="profile-img">👤</div>
+                    <div class="profile-name-small">General Profile</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- QA Engineer Content -->
+        <div class="content" id="qa-content">
+            <div class="content-header">
+                <h2 class="content-title">QA Engineer Profile</h2>
+                <button class="back-button" onclick="hideContent('qa-content')">Back to Profiles</button>
+            </div>
+            
+            <!-- Your existing QA content remains the same -->
+            <div class="content-section">
+                <h3 class="section-title">Summary</h3>
+                <p class="section-content">
+                    Agile Tester with experience in developing and executing automated testing scripts, ensuring seamless 
+                    integration within Agile workflows. Skilled in validating SaaS product features, conducting exploratory 
+                    testing, and leveraging tools to test APIs. Proven ability to document test cases, analyze user feedback, 
+                    and contribute to improving product quality and user satisfaction.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-title">Agile Tester</div>
+                    <div class="experience-company">Loxvo Technologies (B2B Software Development Services)</div>
+                    <div class="experience-date">June 2024 - Present</div>
+                    <ul class="section-content experience-details">
+                        <li>Working remotely on Reetro.io, a SaaS Retrospective tool</li>
+                        <li>Achieved efficient automated testing for production using Selenium IDE, improving test coverage and faster issue detection</li>
+                        <li>Implemented Cypress with JavaScript for end-to-end (E2E) test automation, enhancing system reliability</li>
+                        <li>Created comprehensive test cases, test plans, and updated test documentation</li>
+                        <li>Executed reporting, tracking, and managing defects through manual and E2E testing</li>
+                        <li>Estimated, prioritized, planned and coordinated testing activities with developers and QA team</li>
+                        <li>Developed well-structured test cases with comprehensive coverage of user stories</li>
+                        <li>Participated actively in release testing to ensure application stability</li>
+                        <li>Validated AI-based analytics features through systematic testing</li>
+                        <li>Conducted thorough regression testing after bug fixes to ensure bug-free software updates</li>
+                        <li>Executed post-release testing to enhance software deployment reliability</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list section-content">
+                    <li class="skill-item">Selenium IDE</li>
+                    <li class="skill-item">Cypress</li>
+                    <li class="skill-item">JavaScript</li>
+                    <li class="skill-item">Test Automation</li>
+                    <li class="skill-item">Manual Testing</li>
+                    <li class="skill-item">Test Documentation</li>
+                    <li class="skill-item">Agile Methodologies</li>
+                    <li class="skill-item">Regression Testing</li>
+                    <li class="skill-item">Defect Tracking</li>
+                    <li class="skill-item">SaaS Testing</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Core Competencies</h3>
+                <p class="section-content">
+                    - Strong analytical and problem-solving skills<br>
+                    - Excellent attention to detail<br>
+                    - Effective collaboration with development teams<br>
+                    - Adaptability in fast-paced environments<br>
+                    - Continuous learning of new testing tools and techniques
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Contact</h3>
+                <p class="section-content contact-info">
+                    <strong>Email:</strong> mahnoortabassam@proton.me<br>
+                    <strong>Phone:</strong> +358442450808<br>
+                    <strong>Location:</strong> Tallinn, Estonia<br>
+                    <strong>GitHub:</strong> <a href="https://github.com/mahnoortabassam" style="color: #e50914;">github.com/mahnoortabassam</a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Digital Marketer Content -->
+        <div class="content" id="marketing-content">
+            <div class="content-header">
+                <h2 class="content-title">Digital Marketer Profile</h2>
+                <button class="back-button" onclick="hideContent('marketing-content')">Back to Profiles</button>
+            </div>
+            
+            <!-- Your existing Digital Marketing content remains the same -->
+            <div class="content-section">
+                <h3 class="section-title">Summary</h3>
+                <p class="section-content">
+                    Creative Digital Marketing professional with experience in social media management, content creation, 
+                    and podcast production. Skilled in developing compelling content strategies, scheduling posts across 
+                    platforms, and analyzing performance metrics to optimize reach. Experienced in leveraging storytelling 
+                    and industry insights to connect with audiences and enhance brand visibility.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-title">Digital Marketing Intern</div>
+                    <div class="experience-company">European Diplomats/Fragmented</div>
+                    <div class="experience-date">February 2025 - Present</div>
+                    <ul class="section-content experience-details">
+                        <li>Working on podcasts to better market European Diplomats and spread awareness of the company's mission</li>
+                        <li>Hosting and participating in weekly EdTech conferences</li>
+                        <li>Managing social media content creation and posting content daily</li>
+                        <li>Developing compelling content strategies to drive engagement</li>
+                        <li>Analyzing performance metrics to optimize reach and visibility</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list section-content">
+                    <li class="skill-item">Social Media Management</li>
+                    <li class="skill-item">Content Creation</li>
+                    <li class="skill-item">Podcast Production</li>
+                    <li class="skill-item">Content Strategy</li>
+                    <li class="skill-item">Audience Engagement</li>
+                    <li class="skill-item">Performance Analytics</li>
+                    <li class="skill-item">Brand Visibility</li>
+                    <li class="skill-item">Storytelling</li>
+                    <li class="skill-item">EdTech Marketing</li>
+                    <li class="skill-item">Conference Hosting</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Core Competencies</h3>
+                <p class="section-content">
+                    - Creative content development<br>
+                    - Strong communication and presentation skills<br>
+                    - Analytical approach to marketing metrics<br>
+                    - Ability to connect with diverse audiences<br>
+                    - Adaptability to different brand voices and styles
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Contact</h3>
+                <p class="section-content contact-info">
+                    <strong>Email:</strong> mahnoortabassam@proton.me<br>
+                    <strong>Phone:</strong> +358442450808<br>
+                    <strong>Location:</strong> Tallinn, Estonia<br>
+                    <strong>GitHub:</strong> <a href="https://github.com/mahnoortabassam" style="color: #e50914;">github.com/mahnoortabassam</a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Business Developer Content -->
+        <div class="content" id="business-content">
+            <div class="content-header">
+                <h2 class="content-title">Business Developer Profile</h2>
+                <button class="back-button" onclick="hideContent('business-content')">Back to Profiles</button>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Summary</h3>
+                <p class="section-content">
+                    Business development professional with a combination of technical and marketing expertise. 
+                    Currently pursuing education in impactful entrepreneurship while gaining practical experience 
+                    in software testing and digital marketing. Passionate about identifying growth opportunities, 
+                    building strategic partnerships, and creating innovative business solutions.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Education</h3>
+                <div class="experience-item">
+                    <div class="experience-title">Bachelor of Arts in Impactful Entrepreneurship</div>
+                    <div class="experience-company">Estonian Business School</div>
+                    <div class="experience-date">2024 - 2027</div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Certifications</h3>
+                <ul class="section-content experience-details">
+                    <li>IELTS</li>
+                    <li>GCSE O Levels</li>
+                    <li>GCE A Levels</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list section-content">
+                    <li class="skill-item">Market Analysis</li>
+                    <li class="skill-item">Strategic Planning</li>
+                    <li class="skill-item">Partnership Development</li>
+                    <li class="skill-item">Sales Strategy</li>
+                    <li class="skill-item">Negotiation</li>
+                    <li class="skill-item">Business Modeling</li>
+                    <li class="skill-item">Growth Strategy</li>
+                    <li class="skill-item">Cross-functional Collaboration</li>
+                    <li class="skill-item">Opportunity Identification</li>
+                    <li class="skill-item">Value Proposition</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Languages</h3>
+                <p class="section-content">
+                    <strong>English:</strong> Native<br>
+                    <strong>Urdu:</strong> Native
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Contact</h3>
+                <p class="section-content contact-info">
+                    <strong>Email:</strong> mahnoortabassam@proton.me<br>
+                    <strong>Phone:</strong> +358442450808<br>
+                    <strong>Location:</strong> Tallinn, Estonia<br>
+                    <strong>GitHub:</strong> <a href="https://github.com/mahnoortabassam" style="color: #e50914;">github.com/mahnoortabassam</a>
+                </p>
+            </div>
+        </div>
+        
+        <!-- General Profile Content -->
+        <div class="content" id="general-content">
+            <div class="content-header">
+                <h2 class="content-title">General Profile</h2>
+                <button class="back-button" onclick="hideContent('general-content')">Back to Profiles</button>
+            </div>
+            
+            <!-- Your existing General Profile content remains the same -->
+            <div class="content-section">
+                <h3 class="section-title">About Me</h3>
+                <p class="section-content">
+                    A versatile professional with experience in both technical QA roles and creative digital marketing. 
+                    Currently pursuing entrepreneurship education while gaining practical experience in software testing 
+                    and marketing. Passionate about continuous learning, problem-solving, and creating impact through 
+                    innovative approaches.
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Core Competencies</h3>
+                <p class="section-content">
+                    - Communication: Effective in both technical and creative contexts<br>
+                    - Teamwork: Collaborative approach across diverse teams<br>
+                    - Adaptability: Comfortable in both structured and dynamic environments<br>
+                    - Learning: Continuous skill development in multiple domains<br>
+                    - Problem-Solving: Analytical approach to challenges<br>
+                    - Leadership: Initiative-taking and guidance capabilities<br>
+                    - Optimization: Focus on improving processes and outcomes
+                </p>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skills-list section-content">
+                    <li class="skill-item">Collaboration</li>
+                    <li class="skill-item">Detail-Oriented</li>
+                    <li class="skill-item">Reporting</li>
+                    <li class="skill-item">Consistency</li>
+                    <li class="skill-item">Strong English</li>
+                    <li class="skill-item">Multitasking</li>
+                    <li class="skill-item">Time Management</li>
+                    <li class="skill-item">Critical Thinking</li>
+                </ul>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Professional Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-title">Agile Tester</div>
+                    <div class="experience-company">Loxvo Technologies</div>
+                    <div class="experience-date">June 2024 - Present</div>
+                    <p class="section-content">Automated testing, test documentation, and quality assurance for SaaS products</p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-title">Digital Marketing Intern</div>
+                    <div class="experience-company">European Diplomats/Fragmented</div>
+                    <div class="experience-date">February 2025 - Present</div>
+                    <p class="section-content">Social media management, content creation, and podcast production</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3 class="section-title">Contact</h3>
+                <p class="section-content contact-info">
+                    <strong>Email:</strong> mahnoortabassam@proton.me<br>
+                    <strong>Phone:</strong> +358442450808<br>
+                    <strong>Location:</strong> Tallinn, Estonia<br>
+                    <strong>GitHub:</strong> <a href="https://github.com/mahnoortabassam" style="color: #e50914;">github.com/mahnoortabassam</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showContent(profile) {
+            document.getElementById('profiles-view').style.display = 'none';
+            document.getElementById(profile + '-content').style.display = 'block';
+        }
+        
+        function hideContent(contentId) {
+            document.getElementById(contentId).style.display = 'none';
+            document.getElementById('profiles-view').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
